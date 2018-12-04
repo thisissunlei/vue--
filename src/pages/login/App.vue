@@ -1,7 +1,4 @@
 <template>
-  <h1>home</h1>
+  <div>登录</div>
 </template>
-
-
-
 

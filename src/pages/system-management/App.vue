@@ -8,7 +8,7 @@
           <div id="layout-content-main" class="layout-content-main" :style="bodyStyle">
             <div id="nav">
               <router-link to="/">Home</router-link> |
-              <router-link to="/about">About</router-link>
+              <router-link to="/home">About</router-link>
             </div>
             <router-view/>
           </div>

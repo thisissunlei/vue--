@@ -1,25 +1,5 @@
 export default {routes:[{
     path:'/about',
     name:'about',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/about/index.vue')
-},{
-    path:'/home',
-    name:'home',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/home/index.vue')
-},{
-    path:'/wsl/:id',
-    name:'wsl-id',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/wsl/_id.vue')
-},{
-    path:'/wsl/:view/dd',
-    name:'wsl-view-dd',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/wsl/_view/dd.vue')
-},{
-    path:'/wsl/detail/view',
-    name:'wsl-detail-view',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/wsl/detail/view.vue')
-},{
-    path:'/wsl/index/view',
-    name:'wsl-index-view',
-    component:()=>import('/Users/wangleping/krspace/kr-dev/code/project-vue/src/views/wsl/index/view.vue')
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/about/index.vue')
 }]}

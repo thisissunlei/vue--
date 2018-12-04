@@ -13,7 +13,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin'); //Gzip
 
+const htmlPages = [
 
+]
 module.exports = {
   // 部署应用包时的基本 URL
   baseUrl: baseUrl,
@@ -24,7 +26,27 @@ module.exports = {
   // 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
   assetsDir: 'static',
   // 以多页模式构建应用程序。
-  pages: undefined,
+  pages:{
+    systemManagement:{
+      entry: 'src/pages/system-management/index.js',
+      template: 'public/system-management/index.html',
+      filename: 'index.html',
+      files: {
+        js: pluginEnvs.jsFiles,
+        css: pluginEnvs.cssFiles
+      },
+    },
+    index:{
+      entry: resolve('./src/pages/home/index.js'),
+      template: resolve('./public/home/index.html'),
+      filename: 'home.html',
+    },
+    login:{
+      entry: resolve('./src/pages/login/index.js'),
+      template: resolve('./public/login/index.html'),
+      filename: 'login.html',
+    }
+  } ,
   //是否使用包含运行时编译器的 Vue 构建版本
   runtimeCompiler: false,
   // 是否为 Babel 或 TypeScript 使用 thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建，在适当的时候开启几个子进程去并发的执行压缩
@@ -41,15 +63,6 @@ module.exports = {
      * 而且预渲染时生成的prefetch标签是modern版本的，低版本浏览器是不需要的
      */
     config.plugins.delete('prefetch');
-    config
-      .plugin('html')
-      .tap(args => {
-        args[0].files = {
-          js: pluginEnvs.jsFiles,
-          css: pluginEnvs.cssFiles
-        };
-        return args
-      });
     //if(process.env.NODE_ENV === 'production') { // 为生产环境修改配置...process.env.NODE_ENV !== 'development'
     //} else {// 为开发环境修改配置...
     //}
@@ -67,6 +80,7 @@ module.exports = {
       .set('images', resolve('src/assets/images'))
       .set('views', resolve('src/views'))
       .set('plugins', resolve('src/plugins'))
+      
   },
   transpileDependencies: ['iview'],
   //调整 webpack 配置 https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F
@@ -121,10 +135,10 @@ module.exports = {
     ];
 
     if (IS_PROD) { // 为生产环境修改配置...process.env.NODE_ENV !== 'development'
-      config.plugins = [...config.plugins, ...pluginsBase, ...pluginsPro];
+      config.plugins = [...config.plugins,...pluginsBase, ...pluginsPro];
     } else {
       // 为开发环境修改配置...
-      config.plugins = [...config.plugins, ...pluginsBase, ...pluginsDev];
+      config.plugins = [...config.plugins,...pluginsBase, ...pluginsDev];
     }
     if (process.env.IS_ANALYZ) {
       //	Webpack包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)
@@ -154,6 +168,7 @@ module.exports = {
   },
   // webpack-dev-server 相关配置 https://webpack.js.org/configuration/dev-server/
   devServer: {
+    contentBase: path.join(__dirname, 'dist/system-management'),
     // host: '0.0.0.0',
     host: "project-vue.krspace.cn",
     port: 1998, // 端口号
