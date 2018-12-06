@@ -2,4 +2,32 @@ export default {routes:[{
     path:'/about',
     name:'about',
     component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/about/index.vue')
+},{
+    path:'/basic/parameter/form',
+    name:'basic-parameter-form',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/basic/parameter/form.vue')
+},{
+    path:'/basic/parameter',
+    name:'basic-parameter',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/basic/parameter/index.vue')
+},{
+    path:'/contract-template/create',
+    name:'contract-template-create',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/contract-template/create/index.vue')
+},{
+    path:'/contract-template/htmlview',
+    name:'contract-template-htmlview',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/contract-template/htmlview.vue')
+},{
+    path:'/contract-template',
+    name:'contract-template',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/contract-template/index.vue')
+},{
+    path:'/contract-template/jsonEditor',
+    name:'contract-template-jsonEditor',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/contract-template/jsonEditor.vue')
+},{
+    path:'/contract-template/view',
+    name:'contract-template-view',
+    component:()=>import('/Users/mac/workspace/kr-dev/Code/kr-op-setting/src/views/contract-template/view.vue')
 }]}

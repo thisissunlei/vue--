@@ -170,7 +170,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist/system-management'),
     // host: '0.0.0.0',
-    host: "project-vue.krspace.cn",
+    host: "adminlocal.krspace.cn",
     port: 1998, // 端口号
     https: false, // https:{type:Boolean}
     open: true, //配置自动启动浏览器  http://172.16.1.12:7071/rest/mcdPhoneBar/

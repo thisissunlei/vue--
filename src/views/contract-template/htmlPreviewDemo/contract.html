@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="插入css" onclick='addCSS()'>
+    <input type="button" value="插入data" onclick='addData()'>
+    <input type="button" value="插入template" onclick='addTemplate()'>
+    <input type="button" value="插入renderJS" onclick='addRenderJS()'>
+
+    <div id="print-box">
+
+    </div>
+
+    <script>
+
+        function addCSS() {
+            var url = 'http://dev02.krspace.cn/plugins/template/1.0.0/ZH/style.css'
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(link);
+        }
+
+        function addData() {
+            var scripts = document.getElementsByTagName('script');
+            Array.prototype.forEach.call(scripts, function (v) {
+               console.log(v.getAttribute("data-data", 'data'));
+            });
+            var dataDom = document.createElement('script');
+            dataDom.setAttribute("data-data", 'data');
+            dataDom.type = "text/javascript"
+            dataDom.src = './data.js'
+            var body = document.getElementsByTagName('body')[0];
+            body.appendChild(dataDom);
+
+        }
+
+        function addTemplate() {
+            var dataDom = document.createElement('script');
+            dataDom.type = "text/javascript"
+            dataDom.src = './template.js'
+            var body = document.getElementsByTagName('body')[0];
+            body.appendChild(dataDom);
+        }
+
+        function addRenderJS() {
+            var dataDom = document.createElement('script');
+            dataDom.type = "text/javascript"
+            dataDom.src = 'http://dev02.krspace.cn/plugins/template/1.0.0/ZH/render.js'
+            var body = document.getElementsByTagName('body')[0];
+            body.appendChild(dataDom);
+        }
+    </script>
+</body>
+
+</html>
