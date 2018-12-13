@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>project-vue-template</title>
+    <% _.each(htmlWebpackPlugin.options.files.css, function (item) { %>
+      <link rel="stylesheet" href="<%= item %>">
+    <% }); %>
 
+    <% _.each(htmlWebpackPlugin.options.files.js, function (item) { %>
+      <script src="<%= item %>"></script>
+    <% }); %>
 
 
   </head>
@@ -14,7 +20,6 @@
     <noscript>
       <strong>We're sorry but project-vue-template doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <h1>首页</h1>
     <div id="app"></div>
     <div>footer</div>
     <!-- built files will be auto injected -->

@@ -39,6 +39,10 @@ module.exports = {
     index:{
       entry: resolve('./src/pages/home/index.js'),
       template: resolve('./public/home/index.html'),
+      files: {
+        js: pluginEnvs.jsFiles,
+        css: pluginEnvs.cssFiles
+      },
       filename: 'home.html',
     },
     login:{
